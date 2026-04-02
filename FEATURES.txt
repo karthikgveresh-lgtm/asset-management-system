@@ -1,0 +1,59 @@
+PROJECT NAME: AssetTrackr
+
+-----------------------------------
+1. Understanding of Client Requirements
+-----------------------------------
+The client wants a software system to manage company assets and track which asset is assigned to which employee. 
+The system should allow storing asset details, assigning assets to employees, and tracking their status.
+
+-----------------------------------
+2. Creative Freedoms Taken
+-----------------------------------
+- Product Name: AssetTrackr
+- Built as a simple CLI-based system (can be extended to web later)
+- Added asset status (Available / Assigned)
+- Added return functionality
+- Unique IDs for employees and assets
+
+-----------------------------------
+3. Assumptions
+-----------------------------------
+- Each asset can be assigned to only one employee at a time
+- Employees can have multiple assets
+- No authentication required for now
+- Data is stored in memory (can be extended to database)
+- Small-scale system (can scale later)
+
+-----------------------------------
+4. Features List
+-----------------------------------
+
+1. Add Employee
+   - Add a new employee with ID and name
+
+2. Add Asset
+   - Add a new asset with ID, name, and status
+
+3. Assign Asset
+   - Assign an asset to an employee
+   - Asset status changes to "Assigned"
+
+4. Return Asset
+   - Employee can return an asset
+   - Status changes back to "Available"
+
+5. View All Assets
+   - Displays all assets with status and assigned employee
+
+6. View All Employees
+   - Displays all employees and their assigned assets
+
+-----------------------------------
+5. Questions for Client
+-----------------------------------
+- Should we add login/authentication for employees/admin?
+- Should assets have categories (laptop, phone, etc.)?
+- Do you want reports (daily/monthly asset usage)?
+- Should we track asset history (who used it before)?
+- Do you want a web interface or mobile app?
+- Should notifications be sent on assignment/return?
