@@ -1,0 +1,146 @@
+PROJECT NAME: AssetTrackr
+
+========================================
+FRONTEND ARCHITECTURE (UI TREE)
+========================================
+
+----------------------------------------
+Role: IT Administrator (Full access to manage assets and employees)
+----------------------------------------
+
+Page: /dashboard (Main landing page after login)
+
+Component: <Sidebar /> - Navigation links (Dashboard, Assets, Employees, Assignments)
+
+Component: <TopNavbar /> - Displays admin name, profile, logout button
+
+Component: <StatCards /> - Shows Total Assets, Assigned Assets, Available Assets
+
+Component: <RecentAssignmentsTable /> - Shows latest asset assignments
+
+
+Page: /assets (Manage all assets)
+
+Component: <Sidebar /> - Reused navigation
+
+Component: <TopNavbar /> - Reused header
+
+Component: <AssetsTable /> - Table showing all assets with search, filter, pagination
+
+Component: <AddAssetModal /> - Form popup to add new asset
+
+Component: <EditAssetModal /> - Form popup to update asset details
+
+Component: <DeleteAssetButton /> - Button to remove asset
+
+Component: <FilterBar /> - Filter by status (Available, Assigned, Maintenance)
+
+
+Page: /employees (Manage employees)
+
+Component: <Sidebar /> - Reused
+
+Component: <TopNavbar /> - Reused
+
+Component: <EmployeesTable /> - Table of all employees
+
+Component: <AddEmployeeModal /> - Form to add employee
+
+Component: <EditEmployeeModal /> - Update employee info
+
+Component: <DeleteEmployeeButton /> - Remove employee
+
+
+Page: /assignments (Track asset assignments)
+
+Component: <Sidebar /> - Reused
+
+Component: <TopNavbar /> - Reused
+
+Component: <AssignmentsTable /> - Shows all asset assignments
+
+Component: <AssignAssetModal /> - Assign asset to employee
+
+Component: <ReturnAssetButton /> - Mark asset as returned
+
+Component: <FilterBar /> - Filter by Active / Returned
+
+
+Page: /reports (Analytics & overview)
+
+Component: <Sidebar /> - Reused
+
+Component: <TopNavbar /> - Reused
+
+Component: <Charts /> - Graphs showing asset usage statistics
+
+Component: <SummaryCards /> - Key insights (total usage, returns, etc.)
+
+
+----------------------------------------
+Role: Standard Employee (Limited access)
+----------------------------------------
+
+Page: /my-assets (Employee dashboard)
+
+Component: <TopNavbar /> - Shows employee name and logout
+
+Component: <MyAssetsList /> - Cards showing assigned assets
+
+Component: <AssetCard /> - Individual asset info (name, status, serial number)
+
+Component: <ReportIssueButton /> - Button to report damaged asset
+
+
+Page: /history (View past assets)
+
+Component: <TopNavbar /> - Reused
+
+Component: <HistoryTable /> - List of previously assigned assets
+
+Component: <FilterBar /> - Filter by returned/active
+
+
+----------------------------------------
+Role: HR/Admin (Optional role - user management focus)
+----------------------------------------
+
+Page: /hr-dashboard
+
+Component: <Sidebar /> - HR-specific navigation
+
+Component: <TopNavbar /> - Reused
+
+Component: <EmployeeStats /> - Total employees, departments
+
+Component: <RecentJoins /> - Recently added employees
+
+
+Page: /hr/employees
+
+Component: <Sidebar /> - Reused
+
+Component: <TopNavbar /> - Reused
+
+Component: <EmployeesTable /> - View all employees
+
+Component: <AddEmployeeModal /> - Add new employee
+
+Component: <SearchBar /> - Search employees
+
+
+========================================
+REUSABLE COMPONENTS (GLOBAL)
+========================================
+
+Component: <Sidebar /> - Used across admin pages
+
+Component: <TopNavbar /> - Used across all pages
+
+Component: <Modal /> - Generic popup wrapper
+
+Component: <Button /> - Reusable button
+
+Component: <Table /> - Reusable table layout
+
+Component: <Card /> - Reusable card UI
