@@ -5,7 +5,7 @@ def get_current_user():
     return {
         "id": 1,
         "name": "Karthik",
-        "role": "admin"   # change to "employee"
+        "role": "employee"   # change to "employee"
     }
 
 # Role permissions
