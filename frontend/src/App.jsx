@@ -1,21 +1,78 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getAssets } from "./api";
+
+// Components
 import Sidebar from "./components/Sidebar";
-import ThemeToggle from "./components/ThemeToggle";
+import AssetsTable from "./components/AssetsTable";
+import StatCards from "./components/StatCards";
 
 function App() {
-  const [role, setRole] = useState("admin"); // change to "employee" to test
+  const [assets, setAssets] = useState([]);
+  const [role, setRole] = useState("admin"); // admin / employee
+  const [theme, setTheme] = useState("light");
+
+  // Fetch assets
+  useEffect(() => {
+    getAssets().then(setAssets);
+  }, []);
+
+  // Theme toggle handler
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  // Dynamic styles
+  const isDark = theme === "dark";
+
+  const appStyle = {
+    display: "flex",
+    backgroundColor: isDark ? "#121212" : "#f5f5f5",
+    color: isDark ? "#ffffff" : "#000000",
+    minHeight: "100vh",
+  };
+
+  const contentStyle = {
+    padding: "20px",
+    width: "100%",
+  };
+
+  const buttonStyle = {
+    marginRight: "10px",
+    padding: "8px 12px",
+    cursor: "pointer",
+    border: "none",
+    borderRadius: "5px",
+  };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={appStyle}>
+      {/* Sidebar */}
       <Sidebar role={role} />
 
-      <div style={{ padding: "20px" }}>
-        <h1>Dashboard
-          <ThemeToggle />
-        </h1>
+      {/* Main Content */}
+      <div style={contentStyle}>
+        <h1>Dashboard</h1>
 
-        <button onClick={() => setRole("admin")}>Admin View</button>
-        <button onClick={() => setRole("employee")}>Employee View</button>
+        {/* Top Controls */}
+        <div style={{ marginBottom: "20px" }}>
+          <button style={buttonStyle} onClick={() => setRole("admin")}>
+            Admin
+          </button>
+
+          <button style={buttonStyle} onClick={() => setRole("employee")}>
+            Employee
+          </button>
+
+          <button style={buttonStyle} onClick={toggleTheme}>
+            Toggle Theme ({theme})
+          </button>
+        </div>
+
+        {/* Stats */}
+        <StatCards assets={assets} />
+
+        {/* Table */}
+        <AssetsTable assets={assets} role={role} />
       </div>
     </div>
   );
